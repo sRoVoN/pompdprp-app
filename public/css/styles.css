@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Bitter";
+    src: url(../fonts/Bitter-Regular.ttf);
+    src: url(../fonts/Bitter-Medium.ttf) format("ttf");
+    src: url(../fonts/Bitter-Thin.ttf) format("ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
