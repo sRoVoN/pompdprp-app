@@ -17,6 +17,7 @@ function App() {
   const [timeSec, setTimeSec] = useState(0);
   const [startBtn, setStartBtn] = useState("START");
   const [startColor, setStartColor] = useState(green[500]);
+  const [activeMode, setActiveMode] = useState("pomodoro");
 
   const handleTimerClick = () => {
     setBackgroundColor(red[400]);
@@ -24,6 +25,7 @@ function App() {
     setIsRuning(false);
     setStartBtn("START");
     setStartColor(green[500]);
+    setActiveMode("pomodoro")
   };
   const handleShortBreakClick = () => {
     setBackgroundColor(green[200]);
@@ -32,6 +34,7 @@ function App() {
     setIsRuning(false);
     setStartBtn("START");
     setStartColor(green[500]);
+    setActiveMode("shortBreak");
   };
   const handleLongBreakClick = () => {
     setBackgroundColor(blue[200]);
@@ -40,6 +43,7 @@ function App() {
     setIsRuning(false);
     setStartBtn("START");
     setStartColor(green[500]);
+    setActiveMode("longBreak")
   };
   const theme = createTheme({
     typography: {},
@@ -61,9 +65,7 @@ function App() {
       return () => clearInterval(intervalPom);
     }
   }, [isRunning, timeMin, timeSec]);
-  // const startTimer = () => {
-  //   setIsRuning(true);
-  // }
+
   const toggleTimer = () => {
     if (isRunning) {
       setIsRuning(false);
@@ -75,11 +77,19 @@ function App() {
       setStartColor(red[500]);
     }
   };
-  const resetTimer = () => {
+   const resetTimer = () => {
     setIsRuning(false);
-    setTimeMin(25);
+    if (activeMode === "pomodoro") {
+      setTimeMin(25);
+    } else if (activeMode === "shortBreak") {
+      setTimeMin(5);
+    } else if (activeMode === "longBreak") {
+      setTimeMin(15);
+    }
     setTimeSec(0);
-    setBackgroundColor(red[400]);
+    setBackgroundColor(
+      activeMode === "pomodoro" ? red[400] : activeMode === "shortBreak" ? green[200] : blue[200]
+    );
   };
   return (
     <ThemeProvider theme={theme}>
