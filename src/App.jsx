@@ -21,6 +21,9 @@ function App() {
   const handleTimerClick = () => {
     setBackgroundColor(red[400]);
     setTimeMin(25);
+    setIsRuning(false);
+    setStartBtn("START");
+    setStartColor(green[500]);
   };
   const handleShortBreakClick = () => {
     setBackgroundColor(green[200]);
