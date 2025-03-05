@@ -101,7 +101,7 @@ function App() {
                 Pomodoro
               </Button>
               <Button onClick={handleShortBreakClick} sx={{ backgroundColor }}>
-                Short Breack
+                Short Break
               </Button>
               <Button onClick={handleLongBreakClick} sx={{ backgroundColor }}>
                 Long Break
